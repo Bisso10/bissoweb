@@ -8516,11 +8516,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bisso\\source\\repos\\bissoweb\\bissoweb\\bissoweb.csproj",
+      "projectUniqueName": "C:\\Users\\bisso\\OneDrive\\Escritorio\\BissoGit\\bissoweb\\bissoweb\\bissoweb.csproj",
       "projectName": "bissoweb",
-      "projectPath": "C:\\Users\\bisso\\source\\repos\\bissoweb\\bissoweb\\bissoweb.csproj",
+      "projectPath": "C:\\Users\\bisso\\OneDrive\\Escritorio\\BissoGit\\bissoweb\\bissoweb\\bissoweb.csproj",
       "packagesPath": "C:\\Users\\bisso\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bisso\\source\\repos\\bissoweb\\bissoweb\\obj\\",
+      "outputPath": "C:\\Users\\bisso\\OneDrive\\Escritorio\\BissoGit\\bissoweb\\bissoweb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
