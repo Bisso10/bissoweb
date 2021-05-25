@@ -322,3 +322,5 @@ C:\Users\bisso\OneDrive\Escritorio\BissoGit\bissoweb\bissoweb\obj\Debug\netcorea
 C:\Users\bisso\OneDrive\Escritorio\BissoGit\bissoweb\bissoweb\obj\Debug\netcoreapp3.1\bissoweb.csproj.CopyComplete
 C:\Users\bisso\OneDrive\Escritorio\BissoGit\bissoweb\bissoweb\obj\Debug\netcoreapp3.1\bissoweb.dll
 C:\Users\bisso\OneDrive\Escritorio\BissoGit\bissoweb\bissoweb\obj\Debug\netcoreapp3.1\bissoweb.pdb
+C:\Users\bisso\OneDrive\Escritorio\BissoGit\bissoweb\bissoweb\obj\Debug\netcoreapp3.1\Razor\Areas\Calculadora\Views\Calculadora\Calculadora.cshtml.g.cs
+C:\Users\bisso\OneDrive\Escritorio\BissoGit\bissoweb\bissoweb\obj\Debug\netcoreapp3.1\Razor\Areas\Calculadora\Views\_ViewImports.cshtml.g.cs

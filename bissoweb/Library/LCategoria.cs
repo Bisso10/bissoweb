@@ -35,5 +35,39 @@ namespace bissoweb.Library
             }
             return identityError;
         }
+        public List<TCategoria> getTCategoria (String valor)
+        {
+            List<TCategoria> listCategoria;
+            if(valor == null)
+            {
+                listCategoria = _context._TCategorias.ToList();
+            }
+            else
+            {
+                listCategoria = _context._TCategorias.Where(c => c.Nombre.StartsWith(valor)).ToList();
+            }
+            return listCategoria;
+        }
+        internal IdentityError UpdateCategoria(int id)
+        {
+            IdentityError identityError;
+            try
+            {
+                var categoria = _context._TCategorias.Where(c => c.CategoriaID.Equals(id)).ToList().ElementAt(0);
+                categoria.Estado = categoria.Estado ? false : true;
+                _context.Update(categoria);
+                _context.SaveChanges();
+                identityError = new IdentityError { Description = "Done" };
+            }
+            catch (Exception e)
+            {
+                identityError = new IdentityError
+                {
+                    Code = "Error",
+                    Description = e.Message
+                };
+            }
+            return identityError;
+        }
     }
 }

@@ -5,6 +5,11 @@
     <UserSecretsId>aspnet-bissoweb-D1DDD25E-4F4D-46D8-AFBA-91A1432CC029</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20210427201900_Migration2.cs" />
+    <Compile Remove="Data\Migrations\20210427201900_Migration2.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.1" />
@@ -17,7 +22,12 @@
 
 
   <ItemGroup>
+    <Folder Include="Areas\Calculadora\Data\" />
+    <Folder Include="Areas\Calculadora\Models\" />
     <Folder Include="Areas\Categorias\Data\" />
+    <Folder Include="Areas\Cursos\Controllers\" />
+    <Folder Include="Areas\Cursos\Data\" />
+    <Folder Include="Areas\Cursos\Views\" />
     <Folder Include="Areas\Principal\Data\" />
     <Folder Include="Areas\Principal\Models\" />
     <Folder Include="wwwroot\Images\" />

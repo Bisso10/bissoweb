@@ -21,30 +21,50 @@ namespace bissoweb.Areas.Categorias.Controllers
         private LCategoria _lcategoria;
         private SignInManager<IdentityUser> _signInManager;
         private static DataPaginador<TCategoria> models;
+        private static IdentityError identityError;
         public CategoriasController(ApplicationDbContext context, SignInManager<IdentityUser> signInManager)
         {
             _signInManager = signInManager;
             _lcategoria = new LCategoria(context);
         }
-        public IActionResult Categorias()
+        public IActionResult Categorias(int id, String Search, int Registros)
         {
-            if(_signInManager.IsSignedIn(User))
+            if (_signInManager.IsSignedIn(User))
             {
-                models = new DataPaginador<TCategoria>
+                Object[] objects = new Object[3];
+                var data = _lcategoria.getTCategoria(Search);
+                if (0 < data.Count)
                 {
-                    Input = new TCategoria()
-                };
+                    var url = Request.Scheme + "://" + Request.Host.Value;
+                    objects = new LPaginador<TCategoria>().paginador(_lcategoria.getTCategoria(Search),
+                        id, Registros, "Categorias", "Categorias", "Categorias", url);
+                }
+                else
+                {
+                    objects[0] = "No hay datos para mostrar";
+                    objects[1] = "No hay datos para mostrar";
+                    objects[2] = new List<TCategoria>();
+                }
+    
+                    models = new DataPaginador<TCategoria>
+                    {
+                        List = (List<TCategoria>)objects[2],
+                        Pagi_info = (String)objects[0],
+                        Pagi_navegacion = (String)objects[1],
+                        Input = new TCategoria()
+                    };
+               
                 return View(models);
             }
             else
             {
                 return RedirectToAction(nameof(HomeController.Index), "Home");
-            } 
+            }
         }
         [HttpPost]
         public String GetCategorias(DataPaginador<TCategoria> model)
         {
-            if(model.Input.Nombre != null && model.Input.Descripcion !=null)
+            if (model.Input.Nombre != null && model.Input.Descripcion != null)
             {
                 var data = _lcategoria.RegistrarCategoria(model.Input);
                 return JsonConvert.SerializeObject(data);
@@ -53,6 +73,13 @@ namespace bissoweb.Areas.Categorias.Controllers
             {
                 return "Llene los datos Requeridos";
             }
+        }
+        [HttpPost]
+        public IActionResult UpdateEstado(int id)
+        {
+            //  var identityError = new IdentityError();
+            identityError = _lcategoria.UpdateCategoria(id);
+            return Redirect("/Categorias/Categorias?area=Categorias");
         }
     }
 }

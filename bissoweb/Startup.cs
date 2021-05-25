@@ -80,6 +80,7 @@ namespace bissoweb
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapAreaRoute("Principal", "Principal", "{controller=Principal}/{action='Index'}/{id?}");
                 routes.MapAreaRoute("Categorias", "Categorias", "{controller=Categorias}/{action='Categorias'}/{id?}");
+                routes.MapAreaRoute("Calculadora", "Calculadora", "{controller=Calculadora}/{action='Calculadora'}/{id?}");
             });
         }
     }

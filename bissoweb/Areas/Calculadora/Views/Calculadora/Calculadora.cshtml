@@ -1,0 +1,62 @@
+﻿@model  DatosCalculadora
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Calculadora</h1>
+
+<form asp-area="Calculadora" asp-controller="Calculadora" asp-action="Calculadora" method="get">
+    <div class="col-xs-6 col-md-3">
+        <div class="col-md-10">
+            <div class="row">
+                <div>
+                    <h4>Numero1</h4>
+                    <input type="number" value="@Model.nro1" name="nro1" id="nro1" class="form-control" />
+                    <h4>Numero2</h4>
+                    <input type="number" value="@Model.nro2" name="nro2" id="nro2" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            @*<div class="row ">
+                <div style="display:flex">
+                    <button style="flex:1" name="nro" id="nro" value="7" type="submit" class="btn btn-outline-dark btn-lg">4</button>
+                    <button style="flex:1" name="nro" id="nro" value="8" type="submit" class="btn btn-outline-dark btn-lg">5</button>
+                    <button style="flex:1" name="nro" id="nro" value="9" type="submit" class="btn btn-outline-dark btn-lg">6</button>
+                    <button style="flex:1" name="operacion" id="operacion" value="3" type="submit" class="btn btn-outline-dark btn-lg">x</button>
+                </div>
+            </div>
+            <div class="row ">
+                <div style="display:flex">
+                    <button style="flex:1" name="nro" id="nro" value="4" type="submit" class="btn btn-outline-dark btn-lg">4</button>
+                    <button style="flex:1" name="nro" id="nro" value="5" type="submit" class="btn btn-outline-dark btn-lg">5</button>
+                    <button style="flex:1" name="nro" id="nro" value="6" type="submit" class="btn btn-outline-dark btn-lg">6</button>
+                    <button style="flex:1" name="operacion" id="operacion" value="2" type="submit" class="btn btn-outline-dark btn-lg">-</button>
+                </div>
+            </div>
+            <div class="row ">
+                <div style="display:flex">
+                    <button style="flex:1" name="nro" id="nro" value="1" type="submit" class="btn btn-outline-dark btn-lg">1</button>
+                    <button style="flex:1" name="nro" id="nro" value="2" type="submit" class="btn btn-outline-dark btn-lg">2</button>
+                    <button style="flex:1" name="nro" id="nro" value="3" type="submit" class="btn btn-outline-dark btn-lg">3</button>
+                    <button style="flex:1" name="operacion" id="operacion" value="1" type="submit" class="btn btn-outline-dark btn-lg">+</button>
+                </div>
+            </div>
+            <div class="row ">
+                <div style="display:flex">
+                    <button style="flex:1" name="nro" id="nro" value="0" type="submit" class="btn btn-outline-dark btn-lg">0</button>
+                    <button style="flex:1" name="operacion" id="operacion" value="1" type="submit" class="btn btn-outline-dark btn-lg">%</button>
+                    <button style="flex:1" name="operacion" id="operacion" value="5" type="submit" class="btn btn-outline-dark btn-lg">=</button>
+                </div>
+            </div>*@
+            <div>
+                <button style="flex:1" name="operacion" id="operacion" value="1" type="submit" class="btn btn-outline-dark btn-lg">+</button>
+            </div>
+            <div>
+                <h4>Resultado</h4>
+                <text>@Model.resultado</text>
+            </div>
+        </div>
+    </div>
+</form>

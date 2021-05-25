@@ -5,9 +5,86 @@
 }
 
 <h1>Categorias</h1>
-<p>
-    <a data-toggle="modal" data-target="#modal1" class='btn btn-info text-white'>Crear Categorias</a>
-</p>
+<form asp-area="Categorias" asp-controller="Categorias" asp-action="Categorias" method="get">
+    <div class="row">
+        <div class="col-xs-8 col-md-3">
+            <input id="filtar" name="Search" placeholder="Buscar Categorias" class="form-control" />
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="col-md-2">
+                <button class='btn btn-info text-white'>Buscar</button>
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-3">
+            <a data-toggle="modal" data-target="#modal1" class='btn btn-info text-white'>Crear Categorias</a>
+        </div>
+        <form asp-area="Categotias" asp-controller="Categorias" asp-action="Categorias" method="get">
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="number" name="Registros" class="form-control" value="5" min="1" max="50" step="1" />
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" class="btn btn-success" value="N Registros" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Input.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Input.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Input.Estado)
+            </th>
+            <th>
+                opciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.List)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    <form asp-area="Categorias" asp-controller="Categorias" asp-action="UpdateEstado" method="post">
+                        <input type="hidden" name="id" value="@item.CategoriaID"/>
+                        @if (item.Estado)
+                        {
+                            <input type="submit" class="btn btn-success text-light" value="Activa"/>
+                        }
+                        else
+                        {
+                            <input type="submit"class="btn btn-danger text-light" value="No Activa"/>
+                        }
+                        </form>
+
+</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    Resultados @Html.Raw(Model.Pagi_info)
+    <br />
+    @Html.Raw(Model.Pagi_navegacion)
+</div>
 <div class="modal fade" data-backdrop="static" id="modal1" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -39,7 +116,7 @@
                             <div class="col-md-10">
                                 <label asp-for="Input.Estado" class="col-md-2 control-label"></label>
                                 <div class="col-md-10">
-                                <input  asp-for="Input.Estado"/>
+                                    <input asp-for="Input.Estado" />
                                 </div>
                             </div>
                         </div>
@@ -52,7 +129,7 @@
                     <button type="submit" class="btn btn-primary" onclick="categorias.RegistrarCategoria()">Guardar</button>
                 </div>
             </form>
-        </div>    
+        </div>
     </div>
 </div>
 @section Scripts {
